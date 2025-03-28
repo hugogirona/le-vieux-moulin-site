@@ -150,3 +150,16 @@ Temporary Items
 *.icloud
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,jetbrains
+
+*
+!.gitignore
+!wp-content/
+wp-content/*
+!wp-content/themes/
+wp-content/themes/*
+!wp-content/themes/LVM
+!wp-content/themes/LVM/*
+!wp-content/themes/LVM/**/*
+!vite.config.js
+!package.json
+!postcss.config.js
