@@ -1,0 +1,99 @@
+.slider {
+  position: relative;
+  overflow-x: hidden;
+  background-color: var(--dark-blue);
+
+  &__title {
+    font-size: 1.25rem;
+    color: var(--text-white);
+    margin-bottom: 1.5rem;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  &__content {
+    line-height: 1.5;
+    color: var(--text-white);
+  }
+
+  &__wrapper {
+    position: relative;
+    width: 80vw;
+    min-width: 300px;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  &__track {
+    display: flex;
+    gap: 5%;
+    width: 500%; /* 4 images donc 100% * 4 */
+    transition: transform 0.5s ease-in-out;
+    scroll-snap-type: x mandatory;
+  }
+
+  &__slide {
+    width: 20%;
+    flex-shrink: 0;
+    cursor: pointer; /* utile pour cliquer sur les labels */
+    scroll-snap-align: center;
+  }
+
+  &__img{width: 100%;
+    height: auto;
+    display: block;
+  }
+
+
+  &__radio {
+    display: none;
+  }
+
+  &__dots{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top:1rem;
+  }
+
+  &__dot{
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color:var(--text-white);
+    cursor: pointer;
+    transition: background-color 0.3s, width 0.3s;
+    user-select: none;
+  }
+}
+
+/* Étape 3 : changer la position du track selon le bouton radio coché */
+#slide-0:checked ~ .slider__track {
+  transform: translateX(0%);
+}
+#slide-1:checked ~ .slider__track {
+  transform: translateX(-25%);
+}
+#slide-2:checked ~ .slider__track {
+  transform: translateX(-50%);
+}
+#slide-3:checked ~ .slider__track {
+  transform: translateX(-75%);
+}
+
+
+/* Dot actif (lié à l'input radio sélectionné) */
+#slide-0:checked ~ .slider__dots label[for="slide-0"],
+#slide-1:checked ~ .slider__dots label[for="slide-1"],
+#slide-2:checked ~ .slider__dots label[for="slide-2"],
+#slide-3:checked ~ .slider__dots label[for="slide-3"] {
+  background-color: var(--greyish);
+  width: 32px;
+  border-radius: 8px;
+}

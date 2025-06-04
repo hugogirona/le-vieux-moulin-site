@@ -1,0 +1,52 @@
+@import "../settings/breackpoints";
+
+.cta {
+  display: inline-block;
+  font-weight: 600;
+  padding: .6rem 1.5rem;
+  border-radius: .3rem;
+  border: 2px solid transparent;
+  transition: color .3s ease, background-color .3s ease, border .3s ease;
+  white-space: nowrap;
+
+  &--primary {
+    background-color: var(--cta-main);
+    color: var(--text-white);
+
+    &:hover, &:active, &:focus {
+      background-color: transparent;
+      border: 2px solid var(--cta-main);
+      color: var(--cta-main);
+    }
+  }
+
+  &--secondary {
+    position: relative;
+    background-color: transparent;
+    color: var(--cta-main);
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+    &:hover, &:active, &:focus {
+      &:before {
+        transform: translateX(.5rem);
+      }
+    }
+
+    &:before {
+      content: "";
+      background-image: url("../../resources/img/cta--secondary__arrow.svg");
+      margin-right: .5rem;
+      width: 15px;
+      height: 1rem;
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      transition: transform .3s ease;
+    }
+  }
+}

@@ -1,0 +1,124 @@
+/* Defined weights:
+  * 100: -
+  * 200: -
+  * 300: light
+  * 400: regular
+  * 500: medium
+  * 600: semi-bold
+  * 700: bold
+  * 800: -
+  * 900: -
+ */
+
+:root {
+  font-family: 'IBM Plex Sans', Helvetica, Arial, sans-serif;
+}
+
+
+/* IBM Plex Sans */
+@font-face {
+  src: url('/wp-content/themes/LVM/resources/fonts/IBMPlexSans-VariableFont_wdth,wght.ttf') format('TrueType');
+  font-family: 'IBM Plex Sans';
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  src: url('/wp-content/themes/LVM/resources/fonts/IBMPlexSans-VariableFont_wdth,wght.ttf') format('TrueType');
+  font-family: 'IBM Plex Sans';
+  font-display: swap;
+  font-style: normal;
+  font-weight: 600;
+}
+
+@font-face {
+  src: url('/wp-content/themes/LVM/resources/fonts/IBMPlexSans-VariableFont_wdth,wght.ttf') format('TrueType');
+  font-family: 'IBM Plex Sans';
+  font-display: swap;
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  src: url('/wp-content/themes/LVM/resources/fonts/IBMPlexSans-VariableFont_wdth,wght.ttf') format('TrueType');
+  font-family: 'IBM Plex Sans';
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  src: url('/wp-content/themes/LVM/resources/fonts/IBMPlexSans-VariableFont_wdth,wght.ttf') format('TrueType');
+  font-family: 'IBM Plex Sans';
+  font-display: swap;
+  font-style: normal;
+  font-weight: 300;
+}
+
+/* Roboto */
+@font-face {
+  src: url('/wp-content/themes/LVM/resources/fonts/Roboto-VariableFont_wdth,wght.ttf') format('TrueType');
+  font-family: 'Roboto';
+  font-display: swap;
+  font-style: normal;
+  font-weight: 900;
+}
+
+@font-face {
+  src: url('/wp-content/themes/LVM/resources/fonts/Roboto-VariableFont_wdth,wght.ttf') format('TrueType');
+  font-family: 'Roboto';
+  font-display: swap;
+  font-style: normal;
+  font-weight: 900;
+}
+
+@font-face {
+  src: url('/wp-content/themes/LVM/resources/fonts/Roboto-VariableFont_wdth,wght.ttf') format('TrueType');
+  font-family: 'Roboto';
+  font-display: swap;
+  font-style: normal;
+  font-weight: 800;
+}
+
+@font-face {
+  src: url('/wp-content/themes/LVM/resources/fonts/Roboto-VariableFont_wdth,wght.ttf') format('TrueType');
+  font-family: 'Roboto';
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  src: url('/wp-content/themes/LVM/resources/fonts/Roboto-VariableFont_wdth,wght.ttf') format('TrueType');
+  font-family: 'Roboto';
+  font-display: swap;
+  font-style: normal;
+  font-weight: 600;
+}
+
+@font-face {
+  src: url('/wp-content/themes/LVM/resources/fonts/Roboto-VariableFont_wdth,wght.ttf') format('TrueType');
+  font-family: 'Roboto';
+  font-display: swap;
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  src: url('/wp-content/themes/LVM/resources/fonts/Roboto-VariableFont_wdth,wght.ttf') format('TrueType');
+  font-family: 'Roboto';
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  src: url('/wp-content/themes/LVM/resources/fonts/Roboto-VariableFont_wdth,wght.ttf') format('TrueType');
+  font-family: 'Roboto';
+  font-display: swap;
+  font-style: normal;
+  font-weight: 300;
+}
+
+

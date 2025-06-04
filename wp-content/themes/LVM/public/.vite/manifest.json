@@ -1,0 +1,25 @@
+{
+  "wp-content/themes/LVM/resources/css/styles.scss": {
+    "file": "assets/css-Bx5UiAd7.css",
+    "src": "wp-content/themes/LVM/resources/css/styles.scss",
+    "isEntry": true
+  },
+  "wp-content/themes/LVM/resources/fonts/IBMPlexSans-VariableFont_wdth,wght.ttf": {
+    "file": "assets/IBMPlexSans-VariableFont_wdth_wght-BTDN9bpA.ttf",
+    "src": "wp-content/themes/LVM/resources/fonts/IBMPlexSans-VariableFont_wdth,wght.ttf"
+  },
+  "wp-content/themes/LVM/resources/fonts/Roboto-VariableFont_wdth,wght.ttf": {
+    "file": "assets/Roboto-VariableFont_wdth_wght-WOy3sDCz.ttf",
+    "src": "wp-content/themes/LVM/resources/fonts/Roboto-VariableFont_wdth,wght.ttf"
+  },
+  "wp-content/themes/LVM/resources/img/cta--secondary__arrow.svg": {
+    "file": "assets/cta--secondary__arrow-B5PnBZta.svg",
+    "src": "wp-content/themes/LVM/resources/img/cta--secondary__arrow.svg"
+  },
+  "wp-content/themes/LVM/resources/js/main.js": {
+    "file": "assets/js-DWgXNvs1.js",
+    "name": "js",
+    "src": "wp-content/themes/LVM/resources/js/main.js",
+    "isEntry": true
+  }
+}

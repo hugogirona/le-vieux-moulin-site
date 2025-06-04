@@ -1,0 +1,13 @@
+@import "../settings/breackpoints";
+
+
+.header{
+  display: flex;
+  padding: 0.625rem 1.25rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: calc(100% - 2.5rem);
+  z-index: 100;
+  background-color: var(--nav-bg);
+}

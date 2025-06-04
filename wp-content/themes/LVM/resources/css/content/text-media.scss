@@ -1,0 +1,35 @@
+@import "../settings/breackpoints";
+
+.text-media {
+
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+
+  &__content {
+    &-container{
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    &-divider{
+      display: flex;
+      align-items: flex-start;
+      gap: .8rem;
+      flex-wrap: wrap;
+    }
+
+    &-headline{
+      font-size: 1.5rem;
+    }
+
+    &-text{
+      line-height: 1.5;
+    }
+  }
+}
+
+.text-media:first-child .text-media__content-headline{
+  font-size: 2rem;
+}
