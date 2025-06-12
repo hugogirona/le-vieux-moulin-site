@@ -4,11 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= wp_title('·', false, 'right') . get_bloginfo('name') ?></title>
+
+    <meta name="description"
+          content="Site web du service de résidence générale Le Vieux Moulin.">
+    <meta name="author" content="Hugo Girona">
+    <meta itemprop="name" content="Portfolio de Hugo Girona, artisan web">
+    <meta property="og:title" content="Accueil - Le Vieux Moulin">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Le Vieux Moulin">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100..700&family=Kaushan+Script&family=Roboto:wght@100..900&display=swap"
           rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?= lvm_asset('css'); ?>">
+
     <script src="<?= lvm_asset('js') ?>" defer></script>
     <?php wp_head(); ?>
 </head>
@@ -18,22 +28,27 @@ $current_url = home_url(add_query_arg([], $_SERVER['REQUEST_URI']));
 ?>
 
 <body class="the_body">
-<header class="header">
+
+<a href="#content" class="skip-link">Aller au contenu</a>
+
+
+<header class="header" itemscope itemtype="https://schema.org/WPHeader">
 
     <div class="header__wrapper">
         <?php if (get_the_title()) : ?>
-        <h1 class="screenreader__only">
-            <?= get_the_title() ?>
-        </h1>
+            <h1 class="screenreader__only">
+                <?= get_the_title() ?>
+            </h1>
         <?php endif; ?>
-        <a class="nav__logo" href="<?= home_url() ?>" title="Se diriger vers la page d’accueil">
-            <img src="<?= get__option('company_logo')['url'] ?>" alt="" height="auto" width="48">
+        <a class="nav__logo" href="<?= home_url() ?>" title="Se diriger vers la page d’accueil"
+           aria-label="Page d’accueil">
+            <img src="<?= get__option('company_logo')['url'] ?>" alt="" height="48" width="48">
         </a>
-        <nav class="nav">
+        <nav class="nav" aria-label="Navigation principale">
             <h2 class="screenreader__only">Navigation principale</h2>
 
             <input type="checkbox" id="burger-toggle" class="nav__checkbox" aria-label="Ouvrir le menu"/>
-            <label for="burger-toggle" class="nav__burger">
+            <label for="burger-toggle" class="nav__burger">Ouvrir le menu
                 <span class="nav__burger--line"></span>
             </label>
 
@@ -55,12 +70,18 @@ $current_url = home_url(add_query_arg([], $_SERVER['REQUEST_URI']));
 
                         <?php else: ?>
                             <input class="nav__toggle"
-                                   type="checkbox" id="<?= strtolower($item['label']) ?>">
+                                   type="checkbox"
+                                   id="<?= strtolower(preg_replace('/\s+/', '-', $item['label'])); ?>" aria-label="Ouvrir le sous menu">
                             <label class="screenreader__only"
-                                   for="<?= strtolower($item['label']) ?>"><?= $item['label'] ?></label>
-                            <span class="nav__dropdown" tabindex="0"><?= $item['label'] ?></span>
+                                   for="<?= strtolower(preg_replace('/\s+/', '-',$item['label']));?>">Ouvrir le sous menu</label>
+                            <span class="nav__dropdown"
+                                  tabindex="0"
+                                  role="button"
+                                  aria-haspopup="true"
+                                  aria-expanded="false"
+                                  aria-controls="submenu-id"><?= $item['label'] ?></span>
 
-                            <ul class="nav__submenu">
+                            <ul class="nav__submenu" id="submenu-id">
                                 <?php foreach ($item['submenu'] as $sub): ?>
                                     <?php $active_sub_class = (is_array($sub['link']) && $sub['link']['url'] === $current_url) ? 'nav__link--current' : ''; ?>
                                     <li class="nav__submenu__item">
@@ -78,8 +99,7 @@ $current_url = home_url(add_query_arg([], $_SERVER['REQUEST_URI']));
                 <?php endforeach; ?>
             </ul>
         </nav>
-
     </div>
 </header>
 
-    <main id="content">
+<main id="content">

@@ -7,7 +7,7 @@ $title = get_sub_field('title'); ?>
     <div class="actu__container">
         <h2 class="actu__title"><?= $title ?></h2>
 
-        <div class=actu__grid">
+        <div class="actu__grid">
             <?php
             $actu = new WP_Query([
                 'post_type' => 'actu',
