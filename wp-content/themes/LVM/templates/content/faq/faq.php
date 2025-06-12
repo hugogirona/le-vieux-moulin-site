@@ -3,27 +3,31 @@ $title = get_sub_field('title');
 $questions = get_sub_field('content');
 ?>
 
-<section class="section faq" aria-labelledby="faq-title">
+<section class="section faq">
+    <div class="size-wrapper">
     <?php if ($title): ?>
-        <h2 id="faq-title" class="faq__title"><?= esc_html($title) ?></h2>
+        <h2 class="faq__title"><?= esc_html($title) ?></h2>
     <?php endif; ?>
 
     <?php if ($questions): ?>
-        <div class="faq__list">
-            <?php foreach ($questions as $index => $question): ?>
-                <?php
-                $question_id = 'faq-q' . $index;
-                $answer_id = 'faq-a' . $index;
-                ?>
-                <details class="faq__item" role="group" aria-labelledby="<?= $question_id ?>" aria-describedby="<?= $answer_id ?>">
-                    <summary id="<?= $question_id ?>" class="faq__question">
+        <ul class="faq__list">
+            <?php foreach ($questions as $question): ?>
+
+                <li class="faq__item">
+                    <span class="faq__arrow">
+                        <svg width="9" height="13" viewBox="0 0 9 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 1.5L7 6.5L1 11.5" stroke="#FFFFFE" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+                    <span class="faq__question">
                         <?= esc_html($question['question']) ?>
-                    </summary>
-                    <div id="<?= $answer_id ?>" class="faq__answer">
+                    </span>
+                    <div class="faq__answer">
                         <p><?= esc_html($question['answer']) ?></p>
                     </div>
-                </details>
+                </li>
             <?php endforeach; ?>
-        </div>
+        </ul>
     <?php endif; ?>
+    </div>
 </section>

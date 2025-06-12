@@ -1,13 +1,47 @@
 @import "../settings/breackpoints";
 
 
-.header{
-  display: flex;
-  padding: 0.625rem 1.25rem;
+.header {
   position: fixed;
   top: 0;
-  left: 0;
-  width: calc(100% - 2.5rem);
-  z-index: 100;
   background-color: var(--nav-bg);
+  min-width: 320px;
+  box-shadow: rgba(0, 0, 0, 0.04) 0 3px 5px;
+  width: 100vw;
+  z-index: 999;
+
+
+  @include tablet-up{
+    position: sticky;
+  }
+
+
+  &__wrapper {
+    display: flex;
+    padding: 1.25rem 5rem;
+    top: 0;
+    left: 0;
+    z-index: 50;
+    max-width: 80rem;
+    margin: 0 auto;
+
+    @include tablet {
+      padding: 0.625rem 1.25rem;
+      width: calc(100% - 2.5rem);
+
+    }
+
+    @include mobile {
+      padding: 0.625rem 1.25rem;
+      width: calc(100% - 2.5rem);
+
+    }
+
+
+    @include tablet-up {
+      gap: 1rem;
+      display: flex;
+      justify-content: flex-start;
+    }
+  }
 }

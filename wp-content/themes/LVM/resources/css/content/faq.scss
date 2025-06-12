@@ -1,0 +1,74 @@
+@import "../settings/breackpoints";
+
+.faq {
+  background-color: var(--nav-bg-color);
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.25rem;
+  }
+
+  &__item {
+    padding: 1.25rem 3.5rem 1.25rem 2rem;
+    background-color: var(--cta-main);
+    color: var(--text-white);
+    border-radius: .5rem;
+    list-style: none;
+    position: relative;
+  }
+
+  &__arrow {
+    position: absolute;
+    top:0;
+    right: 0;
+    transition: transform .2s ease;
+    padding: 1.4rem;
+
+    &--rotate {
+      transform: rotate(90deg);
+    }
+
+
+    & svg {
+      width: 1.25em;
+      height: 1.25em;
+    }
+  }
+
+  &__question {
+    font-size: 1.25rem;
+    font-family: "Roboto", helvetica, arial, sans-serif;
+  }
+
+  &__answer {
+    overflow: hidden;
+    padding: 2rem 0 1rem;
+    height: initial;
+    transition: all .2s ease;
+
+
+    &--closed {
+      max-height: 0;
+      padding: 0;
+    }
+
+    &--open {
+      padding: 2rem 0 1rem;
+      max-height: 500px;
+    }
+
+    & p {
+      padding-left: 1.25rem;
+      border-left: 1px solid var(--text-white);
+      line-height: 1.5;
+    }
+  }
+}

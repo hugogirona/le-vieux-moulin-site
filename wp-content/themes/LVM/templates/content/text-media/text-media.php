@@ -6,6 +6,7 @@
 <?php $media_position = get_sub_field('media_position') ?>
 
 <section class="section text-media">
+    <div class="size-wrapper">
     <?php if ($image): ?>
         <div class="text-media__image-wrapper text-media__image-wrapper--<?= esc_attr($media_position) ?>">
             <?= responsive_image($image, [
@@ -44,5 +45,5 @@
         <?php endif; ?>
 
     </div>
-
+    </div>
 </section>

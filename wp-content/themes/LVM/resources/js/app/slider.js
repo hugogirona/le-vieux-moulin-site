@@ -1,4 +1,5 @@
-document.addEventListener("DOMContentLoaded", () => {
+
+if(document.querySelector('.slider')) {
     const radios = document.querySelectorAll('input[name="slider"]');
     const dots = document.querySelectorAll('.slider__dot');
     let current = 0;
@@ -7,26 +8,26 @@ document.addEventListener("DOMContentLoaded", () => {
     let autoplayInterval = null;
     let resumeTimeout = null;
 
-    // Fonction pour changer de slide automatiquement
+// Fonction pour changer de slide automatiquement
     function autoplay() {
         radios.forEach(radio => radio.checked = false);
         radios[current].checked = true;
         current = (current + 1) % max;
     }
 
-    // Démarrer l'autoplay
+// Démarrer l'autoplay
     function startAutoplay() {
         if (autoplayInterval) return; // déjà lancé
         autoplayInterval = setInterval(autoplay, 2000);
     }
 
-    // Stopper l'autoplay
+// Stopper l'autoplay
     function stopAutoplay() {
         clearInterval(autoplayInterval);
         autoplayInterval = null;
     }
 
-    // Quand l'utilisateur clique sur un dot
+// Quand l'utilisateur clique sur un dot
     dots.forEach((dot, index) => {
         dot.addEventListener("click", () => {
             stopAutoplay(); // on stoppe l'autoplay
@@ -42,6 +43,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Lancer l'autoplay au chargement
+// Lancer l'autoplay au chargement
     startAutoplay();
-});
+}

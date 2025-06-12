@@ -1,12 +1,29 @@
+@import "../settings/breackpoints";
+
+
 .slider {
-  position: relative;
-  overflow-x: hidden;
   background-color: var(--dark-blue);
+
+  & .size-wrapper{
+    position: relative;
+    overflow-x: hidden;
+
+    @include tablet-up {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+  }
 
   &__title {
     font-size: 1.25rem;
     color: var(--text-white);
     margin-bottom: 1.5rem;
+
+    @include tablet-up{
+      margin-bottom: 2rem;
+    }
   }
 
   &__container {
@@ -23,17 +40,25 @@
 
   &__wrapper {
     position: relative;
-    width: 80vw;
+    width: 100%;
     min-width: 300px;
     max-width: 800px;
     margin: 0 auto;
     overflow: hidden;
+
+    @include tablet-up {
+      width: 100%;
+      max-width: none;
+      min-width: 0;
+      margin: 0;
+      overflow: hidden;
+    }
   }
 
   &__track {
     display: flex;
     gap: 5%;
-    width: 500%; /* 4 images donc 100% * 4 */
+    width: 500%;
     transition: transform 0.5s ease-in-out;
     scroll-snap-type: x mandatory;
   }
@@ -41,7 +66,7 @@
   &__slide {
     width: 20%;
     flex-shrink: 0;
-    cursor: pointer; /* utile pour cliquer sur les labels */
+    cursor: pointer;
     scroll-snap-align: center;
   }
 
@@ -73,7 +98,7 @@
   }
 }
 
-/* Étape 3 : changer la position du track selon le bouton radio coché */
+
 #slide-0:checked ~ .slider__track {
   transform: translateX(0%);
 }
@@ -88,7 +113,7 @@
 }
 
 
-/* Dot actif (lié à l'input radio sélectionné) */
+
 #slide-0:checked ~ .slider__dots label[for="slide-0"],
 #slide-1:checked ~ .slider__dots label[for="slide-1"],
 #slide-2:checked ~ .slider__dots label[for="slide-2"],

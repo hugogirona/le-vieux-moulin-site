@@ -7,11 +7,30 @@
 
 
 @use 'general/general';
+@use 'general/not-found';
 @use 'general/header';
 @use 'general/footer';
 @use 'general/navigation';
+@use 'general/dropdown';
 @use 'general/burger-menu';
+
 
 @use 'content/text-media';
 @use 'content/cta';
 @use 'content/slider';
+@use 'content/gallery';
+@use 'content/faq';
+@use 'content/section-actu';
+@use 'content/actu-card';
+@use 'content/foster-banner';
+@use 'content/house-characteristics';
+@use 'content/characteristics-card';
+@use 'content/employees';
+@use 'content/form';
+@use 'content/resources';
+@use 'content/sponsor';
+@use 'content/chronology';
+@use 'content/testimonials';
+@use 'content/single-news';
+@use 'content/single-paragraph';
+@use 'content/volunteering';

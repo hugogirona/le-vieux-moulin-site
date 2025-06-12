@@ -100,7 +100,12 @@
 
     /* Show Menu */
     &:checked ~ .nav__container {
-      transform: translateX(-100%); // 🚪 glisse vers l'écran
+      @include tablet {
+        transform: translateX(-100%);
+      }
+      @include mobile {
+        transform: translateX(-100%);
+      }
     }
 
 

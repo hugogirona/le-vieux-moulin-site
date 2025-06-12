@@ -2,7 +2,8 @@
 
 $title = get_sub_field('title'); ?>
 
-<section class="section section-actu">
+<section class="section actu">
+    <div class="size-wrapper">
     <div class="actu__container">
         <h2 class="actu__title"><?= $title ?></h2>
 
@@ -24,5 +25,6 @@ $title = get_sub_field('title'); ?>
             endif;
             ?>
         </div>
+    </div>
     </div>
 </section>

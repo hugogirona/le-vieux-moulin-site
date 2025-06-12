@@ -4,9 +4,10 @@ $paragraphs = get_sub_field('title_paragraph');
 ?>
 
 <section class="section chronology">
+    <div class="size-wrapper">
     <h2 class="chronology__title"><?= $headline ?></h2>
     <?php if ($paragraphs): ?>
-        <div class="chronology_wrapper">
+        <div class="chronology__wrapper">
             <?php foreach ($paragraphs as $paragraph): ?>
                 <?php
                 $title = $paragraph['title'];
@@ -21,5 +22,5 @@ $paragraphs = get_sub_field('title_paragraph');
             <?php endforeach; ?>
         </div>
     <?php endif; ?>
-
+    </div>
 </section>

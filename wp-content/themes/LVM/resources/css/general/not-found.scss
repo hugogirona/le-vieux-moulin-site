@@ -1,0 +1,26 @@
+.not-found {
+  background-image: url('../../resources/img/not-found_bg.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 95vh;
+
+  & .size-wrapper{
+    padding-top: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  &__title {
+    font-size: 5rem;
+    text-transform: uppercase;
+  }
+
+  &__message{
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+  }
+}

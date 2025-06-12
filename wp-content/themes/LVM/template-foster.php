@@ -7,7 +7,7 @@
 
 
 
-<section class="section foster__header">
+<section class="foster__header">
     <h2 class="foster__title"><?= $headline ?></h2>
     <?= responsive_image($banner, [
         'classes' => ['foster__banner'],

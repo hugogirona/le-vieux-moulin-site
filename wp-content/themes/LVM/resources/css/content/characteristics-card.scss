@@ -1,0 +1,48 @@
+@import "../settings/breackpoints";
+
+
+.house-characteristics {
+
+  &__card {
+    //margin-right: 1.5rem;
+    min-width: 12.5rem;
+    max-width: 12.5rem;
+    min-height: 23rem;
+    padding: 1.25rem 2rem;
+    background-color: var(--text-white);
+    border: 2px solid var(--cta-main);
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    scroll-snap-align: center;
+    user-select: none;
+
+    @include tablet-up {
+      margin-right: 0;
+      flex: 1 1 0;
+    }
+
+    &--title {
+      font-size: 1rem;
+
+      @include tablet-up {
+        font-size: 1.25rem;
+
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.875rem;
+  }
+
+  &__feature {
+    line-height: 1.5;
+    color: var(--text-body);
+  }
+}

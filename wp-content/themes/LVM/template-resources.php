@@ -10,6 +10,7 @@ $project_section = get_field('project');
 ?>
 
 <section class="section resources">
+    <div class="size-wrapper">
     <h2 class="resources__title"><?= $headline ?></h2>
 
     <?php if ($documents_section): ?>
@@ -23,7 +24,8 @@ $project_section = get_field('project');
                     $file_path = get_attached_file($file_id); // Chemin absolu sur le serveur
                     $file_size = format_file_size(filesize($file_path));
                     $file_ext = pathinfo($file_url, PATHINFO_EXTENSION);
-                    $file_name = $file['document']['title']
+                    $file_name = $file['document']['title'];
+                    $file_name_display = $file['label']
                     ?>
 
                     <li class="resources__downloads__item resources__downloads__item--<?= $file_ext ?>">
@@ -31,9 +33,9 @@ $project_section = get_field('project');
                            href="<?= $file_url ?>"
                            download
                            title="<?= 'Télécharger le document' . ' ' .  $file_name?>">
-                            <span class="resources__downloads__file--name" ><?= $file_name ?></span>
-                            <span class="resources__downloads__file--ext"><?= $file_size ?></span>
                         </a>
+                        <span class="resources__downloads__file--name" ><?= $file_name_display ?></span>
+                        <span class="resources__downloads__file--size"><?= $file_size ?></span>
                     </li>
                 <?php endforeach; ?>
             </ul>
@@ -48,7 +50,7 @@ $project_section = get_field('project');
             </div>
         </article>
     <?php endif; ?>
-
+    </div>
 </section>
 
 

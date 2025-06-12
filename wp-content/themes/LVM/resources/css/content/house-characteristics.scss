@@ -1,0 +1,62 @@
+@import "../settings/breackpoints";
+
+.house-characteristics {
+  background-image: url('../../resources/img/bg_animated_shapes.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  & .size-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &__slider {
+    margin: 0 auto;
+    overflow-x: hidden;
+    max-width: 300px;
+
+    @include tablet {
+      max-width: none;
+      width: 100%;
+    }
+
+    @include tablet-up {
+      max-width: none;
+      width: 100%;
+    }
+
+    &--wrapper {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 1rem;
+      padding-inline: 1.5rem;
+      gap: 1rem;
+
+      @include tablet-up {
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        justify-content: center;
+        padding-inline: 0;
+
+      }
+    }
+  }
+
+
+  &__title {
+    font-size: 2rem;
+  }
+
+  &__radio {
+    display: none;
+  }
+
+  &__cta {
+    align-self: center;
+  }
+
+}

@@ -4,7 +4,8 @@ $title = get_sub_field('title');
 $images = get_sub_field('gallery');
 ?>
 <?php if ($images) : ?>
-    <section class="gallery">
+    <section class="section gallery">
+        <div class="size-wrapper">
         <div class="gallery__container">
             <?php if ($title) : ?>
                 <h2 class="gallery__title"><?= esc_html($title); ?></h2>
@@ -19,6 +20,7 @@ $images = get_sub_field('gallery');
                     ]) ?>
                 <?php endforeach; ?>
             </div>
+        </div>
         </div>
     </section>
 <?php endif; ?>

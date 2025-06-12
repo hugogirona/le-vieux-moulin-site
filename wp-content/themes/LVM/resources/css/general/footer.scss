@@ -1,90 +1,112 @@
 @import "../settings/breackpoints";
-
+footer{
+  background-color: var(--footer-bg);
+}
 
 .footer-menu {
   display: flex;
   color: var(--text-white);
-  background-color: var(--footer-bg);
   gap: 1.5rem;
+  flex-direction: column;
+  padding: 3rem 5rem;
+  max-width: 80rem;
+  margin: 0 auto;
+
 
   @include mobile {
-    flex-direction: column;
     padding: 1.25rem;
   }
 
+  @include tablet {
+    padding: 1.25rem;
+  }
+
+
   &__container {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     border-bottom: 1px solid var(--text-white);
+    justify-content: space-between;
+    gap: 2.5rem;
+    padding-bottom: 2.5rem;
+    max-width: 1920px;
 
     @include mobile {
+      flex-direction: column;
       gap: 3rem;
       padding: 1.25rem 1.25rem 2.5rem;
     }
 
+    @include tablet {
+      flex-direction: column;
+      gap: 3rem;
+      padding: 1.25rem 1.25rem 2.5rem;
+    }
   }
 
-  &__qr-code{
+  &__qr-code {
     display: flex;
     flex-direction: column;
     gap: 2.5rem;
 
-    & img{
+    & img {
       width: 180px;
       height: 180px;
     }
   }
 
-  &__p{
+  &__p {
     font-size: 1.25rem;
     font-weight: 600;
   }
 
-  &__title{
+  &__title {
     font-size: 1.25rem;
     font-weight: 600;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 
-    & ul{
+    & ul {
       display: flex;
       flex-direction: column;
       gap: 1.25rem;
     }
   }
 
-  &__item{
+  &__item {
     font-size: 1rem;
     font-weight: 400;
     opacity: 0.7;
   }
 
-  &__link{
-    transition: text-decoration 0.2s ease-in-out;
+  &__link {
+    transition: border-bottom 0.2s linear;
 
-    @include tablet-up {
-      &:hover{
-        text-decoration: underline;
-      }
+    &:hover, &:focus, &:active {
+      border-bottom: 1px solid var(--text-white);
     }
   }
 
-  &__partner{
+  &__partner {
 
-    &__container{
+    &__container {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       margin: 2.5rem 1.25rem 0;
+
+      @include tablet-up {
+        max-width: 50%;
+      }
     }
 
-    &__img{
+    &__img {
       height: auto;
       object-fit: contain;
       max-width: 60%;
 
-      &:nth-child(1){
+      &:nth-child(1) {
         max-width: 30%;
       }
     }
@@ -92,6 +114,6 @@
   }
 }
 
-.copyright{
+.copyright {
   margin: 1.25rem;
 }

@@ -1,10 +1,31 @@
 @import "../settings/breackpoints";
 
 .text-media {
-
+& .size-wrapper {
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
+
+  @include tablet-up {
+    display: grid;
+    grid-template-columns: 1fr 1fr; // chaque partie = 50%
+    gap: 4rem; // ou ce que tu veux
+    align-items: center;
+  }
+}
+
+  &:first-child {
+    background-image: url('../../resources/img/bg_animated_shapes.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  &__image-wrapper--right{
+    @include tablet-up {
+      order: 2;
+    }
+  }
 
   &__content {
     &-container{
@@ -16,12 +37,20 @@
     &-divider{
       display: flex;
       align-items: flex-start;
-      gap: .8rem;
+      gap: 2rem;
       flex-wrap: wrap;
+
+      @include mobile{
+        gap: .8rem;
+      }
     }
 
     &-headline{
       font-size: 1.5rem;
+
+      @include  tablet-up{
+        font-size: 2rem;
+      }
     }
 
     &-text{
@@ -32,4 +61,8 @@
 
 .text-media:first-child .text-media__content-headline{
   font-size: 2rem;
+
+  @include  tablet-up{
+    font-size: 2.5rem;
+  }
 }

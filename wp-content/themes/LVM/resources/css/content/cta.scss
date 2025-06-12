@@ -9,7 +9,7 @@
   transition: color .3s ease, background-color .3s ease, border .3s ease;
   white-space: nowrap;
 
-  &--primary {
+  &--primary, {
     background-color: var(--cta-main);
     color: var(--text-white);
 

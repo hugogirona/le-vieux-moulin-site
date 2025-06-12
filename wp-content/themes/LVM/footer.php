@@ -1,4 +1,5 @@
 </main>
+
 <footer>
     <nav class="footer-menu">
         <h2 class="screenreader__only">Navigation secondaire</h2>
@@ -62,6 +63,5 @@
             </p>
         </div>
 </footer>
-
 </body>
 </html>

@@ -5,14 +5,15 @@ $paragraph = get_sub_field('paragraph');
 $profile_cards = get_sub_field('profil_cards');
 ?>
 
-<section class="search volunteering-profiles">
-    <div class="volunteering-profiles__left">
-        <h2 class="volunteering-profiles__title"><?= $title ?></h2>
-        <p class="volunteering-profiles__content"><?= $paragraph ?></p>
+<section class="section volunteering">
+    <div class="size-wrapper">
+    <div class="volunteering__left">
+        <h2 class="volunteering__title"><?= $title ?></h2>
+        <p class="volunteering__content"><?= $paragraph ?></p>
     </div>
 
     <?php if ($profile_cards): ?>
-        <div class="volunteering-profiles__right">
+        <div class="volunteering__right">
 
             <?php foreach ($profile_cards as $profile_card) : ?>
 
@@ -27,14 +28,14 @@ $profile_cards = get_sub_field('profil_cards');
 
                 ?>
 
-                <article class="volunteering-profiles__card">
+                <article class="volunteering__card">
 
-                    <h3 class="volunteering-profiles__card--headline"><?= $mission_title ?></h3>
-                    <p class="volunteering-profiles__card--text"><?= $mission_description ?></p>
-                    <p class="volunteering-profiles__card--title"><?= $frequence_title ?></p>
-                    <p class="volunteering-profiles__card--text"><?= $frequence_description ?></p>
-                    <p class="volunteering-profiles__card--title"><?= $location_title ?></p>
-                    <p class="volunteering-profiles__card--text"><?= $location_title ?></p>
+                    <h3 class="volunteering__card--headline"><?= $mission_title ?></h3>
+                    <p class="volunteering__card--text"><?= $mission_description ?></p>
+                    <p class="volunteering__card--title"><?= $frequence_title ?></p>
+                    <p class="volunteering__card--text"><?= $frequence_description ?></p>
+                    <p class="volunteering__card--title"><?= $location_title ?></p>
+                    <p class="volunteering__card--text"><?= $location_title ?></p>
 
                 </article>
 
@@ -42,4 +43,5 @@ $profile_cards = get_sub_field('profil_cards');
 
         </div>
     <?php endif; ?>
+    </div>
 </section>

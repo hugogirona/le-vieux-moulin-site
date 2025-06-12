@@ -1,0 +1,65 @@
+@import "../settings/breackpoints";
+
+
+.foster {
+  &__header {
+    position: relative;
+    max-height: 70vh;
+    //max-width: 80rem;
+    //margin: 0 auto;
+  }
+
+  &__title {
+    position: absolute;
+    color: var(--text-white);
+    font-size: 2rem;
+    transform: translateX(-50%);
+    left: 50%;
+    bottom: 0;
+    padding-bottom: 5rem;
+    z-index: 1;
+
+    @include tablet-up{
+      font-size: 3rem;
+    }
+
+    @include mobile{
+      transform: translateX(0);
+      left: 0;
+      padding-left: 1.25rem;
+    }
+
+  }
+
+  &__banner {
+    width: 100%;
+    height: 100%;
+    max-height: 70vh;
+    object-fit: cover;
+    display: block;
+    aspect-ratio: 21/9;
+    filter: brightness(.7);
+    z-index: 0;
+  }
+
+  &__info {
+    background-color: var(--cta-main);
+    color: var(--text-white);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.25rem;
+    padding: 1.25rem 0;
+
+    @include tablet-up{
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, 50%);
+      gap: 4rem;
+      padding: 1.25rem 5rem;
+
+    }
+  }
+
+}

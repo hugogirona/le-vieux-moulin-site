@@ -9,6 +9,8 @@ $image = get_sub_field('image');
 
 
 <section class="section single-paragraph">
+    <div class="size-wrapper">
+
     <div class="single-paragraph__divider--left">
         <h2 class="single-paragraph__title"><?= $title ?></h2>
 
@@ -18,12 +20,18 @@ $image = get_sub_field('image');
 
     </div>
 
-    <div class="single-paragraph__divider--right">
-        <ul>
-            <?php foreach ($content_list as $item): ?>
-                <li class="single-paragraph__item"><?= $item['content_line'] ?></li>
-            <?php endforeach; ?>
-        </ul>
+    <article class="single-paragraph__divider--right">
+        <?php if ($title_aside): ?>
+            <h3 class="single-paragraph__subtitle"><?= $title_aside ?></h3>
+        <?php endif; ?>
+
+        <?php if ($content_list): ?>
+            <ul>
+                <?php foreach ($content_list as $item): ?>
+                    <li class="single-paragraph__item"><?= $item['content_line'] ?></li>
+                <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
 
         <?php if ($image): ?>
             <img src="<?= $image['url'] ?>"
@@ -32,5 +40,6 @@ $image = get_sub_field('image');
                  height="<?= $image['height'] ?>">
         <?php endif; ?>
 
+    </article>
     </div>
 </section>

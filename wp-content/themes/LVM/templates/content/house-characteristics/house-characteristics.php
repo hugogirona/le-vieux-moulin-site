@@ -7,21 +7,15 @@ $slider_id = uniqid('slider_');
 
 <?php if ($cards) : ?>
     <section class="section house-characteristics" aria-label="<?= esc_attr($title); ?>">
+        <div class="size-wrapper">
 
         <?php if ($title) : ?>
             <h2 class="house-characteristics__title"><?= esc_html($title); ?></h2>
         <?php endif; ?>
 
-        <?php foreach ($cards as $index => $card): ?>
-            <input type="radio"
-                   name="<?= $slider_id ?>"
-                   id="<?= $slider_id ?>_<?= $index ?>"
-                <?= $index === 0 ? 'checked' : '' ?>
-            />
-        <?php endforeach; ?>
-        <div class="house-characteristics__slider--wrapper">
+        <div class="house-characteristics__slider">
 
-            <div class="house-characteristics__slider">
+            <div class="house-characteristics__slider--wrapper">
                 <?php foreach ($cards as $index => $card) : ?>
                     <?php
                     $card_title = $card['house_card_title'] ?? '';
@@ -30,7 +24,7 @@ $slider_id = uniqid('slider_');
 
                     <article class="house-characteristics__card slide">
                         <?php if ($card_title) : ?>
-                            <h3 class="house-characteristics__card-title"><?= esc_html($card_title); ?></h3>
+                            <h3 class="house-characteristics__card--title"><?= esc_html($card_title); ?></h3>
                         <?php endif; ?>
 
                         <?php if ($features) : ?>
@@ -46,26 +40,6 @@ $slider_id = uniqid('slider_');
                 <?php endforeach; ?>
             </div>
 
-            <div class="house-characteristics__arrows">
-                <?php foreach ($cards as $index => $card): ?>
-                    <?php
-                    $total = count($cards);
-                    $prev_index = $index - 1 >= 0 ? $index - 1 : $total - 1;
-                    $next_index = $index + 1 < $total ? $index + 1 : 0;
-                    ?>
-
-                    <label for="<?= $slider_id ?>_<?= $prev_index ?>"
-                           class="house-characteristics__arrow house-characteristics__arrow--prev house-characteristics__arrow--<?= $index ?>">
-                        ◀
-                    </label>
-
-                    <label for="<?= $slider_id ?>_<?= $next_index ?>"
-                           class="house-characteristics__arrow house-characteristics__arrow--next house-characteristics__arrow--<?= $index ?>">
-                        ▶
-                    </label>
-                <?php endforeach; ?>
-            </div>
-
         </div>
 
         <!-- CTA (optionnel) -->
@@ -77,5 +51,6 @@ $slider_id = uniqid('slider_');
                 <?= esc_html($cta['label']) ?>
             </a>
         <?php endif; ?>
+        </div>
     </section>
 <?php endif; ?>
