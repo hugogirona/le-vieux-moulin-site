@@ -100,6 +100,17 @@ if(document.querySelector('.slider')) {
     startAutoplay();
 }
 
+const form = {
+    init() {
+        this.formElt = document.querySelector('.form');
+        this.addEventListeners();
+    },
+    addEventListeners() {
+        this.formElt.addEventListener('submit', (e) => {
+            e.preventDefault();
+        })
+    }
+}
 if(document.querySelector('.faq__question')){
     (function (){
         const faq = {

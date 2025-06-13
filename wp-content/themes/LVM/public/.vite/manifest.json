@@ -1,6 +1,6 @@
 {
   "wp-content/themes/LVM/resources/css/styles.scss": {
-    "file": "assets/css-HzMjXNpy.css",
+    "file": "assets/css-D9TQEn7N.css",
     "src": "wp-content/themes/LVM/resources/css/styles.scss",
     "isEntry": true
   },
@@ -28,9 +28,21 @@
     "file": "assets/download_arrow-DgOY45N9.svg",
     "src": "wp-content/themes/LVM/resources/img/download_arrow.svg"
   },
+  "wp-content/themes/LVM/resources/img/nice_car.svg": {
+    "file": "assets/nice_car-DgNl0bxe.svg",
+    "src": "wp-content/themes/LVM/resources/img/nice_car.svg"
+  },
+  "wp-content/themes/LVM/resources/img/nice_house.svg": {
+    "file": "assets/nice_house-DnBn5Kfy.svg",
+    "src": "wp-content/themes/LVM/resources/img/nice_house.svg"
+  },
   "wp-content/themes/LVM/resources/img/not-found_bg.svg": {
     "file": "assets/not-found_bg-BQS1rNLA.svg",
     "src": "wp-content/themes/LVM/resources/img/not-found_bg.svg"
+  },
+  "wp-content/themes/LVM/resources/img/pimiento.svg": {
+    "file": "assets/pimiento-BfurShIv.svg",
+    "src": "wp-content/themes/LVM/resources/img/pimiento.svg"
   },
   "wp-content/themes/LVM/resources/js/main.js": {
     "file": "assets/js-CI-YbRFN.js",

@@ -5,13 +5,43 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  position: relative;
+  z-index: 1;
+
+  &::after{
+    content: '';
+    background-image: url('../../resources/img/nice_house.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: absolute;
+    width: 700px;
+    height: 400px;
+    bottom: 0;
+    right: -40%;
+    z-index: -1;
+
+    @include tablet {
+      right: -10%;
+    }
+
+    @include tablet-up {
+      right: 0
+    }
+  }
+
+  @include mobile {
+    padding-bottom: 15rem;
+  }
+
+  @include tablet {
+    padding-bottom: 15rem;
+  }
 
   & .size-wrapper{
     display: flex;
     flex-direction: column;
     gap: 2.5rem;
-
-    //TODO mettre le petit svg em after
 
     @include tablet-up{
       display: grid;
@@ -160,4 +190,8 @@
   &::placeholder {
     color: #C3C3C3;
   }
+}
+
+.field__error {
+  color: #c54848;
 }
