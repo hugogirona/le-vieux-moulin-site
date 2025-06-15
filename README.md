@@ -46,4 +46,4 @@ Ce projet a été réalisé dans un contexte scolaire tout en servant de vitrine
 
 ---
 
-Merci de consulter [Le Vieux Moulin](https://le-vieux-moulin.hugogirona.fr) pour voir le résultat ✨
+Merci de consulter [Le Vieux Moulin](https://le-vieux-moulin.hugogirona.com) pour voir le résultat ✨
