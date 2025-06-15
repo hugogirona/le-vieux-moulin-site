@@ -26,6 +26,7 @@
     position: relative;
     font-size: 1.25rem;
     line-height: 1.5rem;
+    min-width: 15rem;
     max-width: 18rem;
     display: flex;
     flex-direction: column;
@@ -34,6 +35,10 @@
     border: 1px solid var(--cta-main);
     border-radius: .5rem;
     box-shadow: 2.5px 4px 4px 0 rgba(0, 0, 0, 0.15);
+
+    @include tablet{
+      max-width: none;
+    }
 
     &::before, &::after{
       content: '“';

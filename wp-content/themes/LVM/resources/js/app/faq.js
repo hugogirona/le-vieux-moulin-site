@@ -1,17 +1,17 @@
-if(document.querySelector('.faq__question')){
-    (function (){
+(function () {
+    if (document.querySelector('.faq__question')) {
         const faq = {
 
             questions: document.querySelectorAll('.faq__question'),
             answers: document.querySelectorAll('.faq__answer'),
             arrows: document.querySelectorAll('.faq__arrow'),
 
-            init(){
+            init() {
                 this.addClosedClass();
                 this.addEventListeners();
             },
 
-            addClosedClass(){
+            addClosedClass() {
                 for (const answer of this.answers) {
                     answer.classList.add('faq__answer--closed');
                 }
@@ -24,7 +24,7 @@ if(document.querySelector('.faq__question')){
 
             },
 
-            addEventListeners(){
+            addEventListeners() {
                 for (let i = 0; i < this.questions.length; i++) {
                     this.questions[i].addEventListener('click', () => {
                         this.handleClassToggle(i);
@@ -38,6 +38,6 @@ if(document.querySelector('.faq__question')){
         }
 
         faq.init();
-    })();
-}
+    }
+})();
 

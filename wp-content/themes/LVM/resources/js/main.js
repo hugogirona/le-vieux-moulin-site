@@ -1,130 +1,74 @@
-document.addEventListener('DOMContentLoaded',  () =>{
-    const slider = document.querySelector('.volunteering__right');
-    let isDown = false;
-    let startX;
-    let scrollLeft;
-    let velX = 0;
-    let momentumID;
+(function () {
 
-    // Drag start
-    slider.addEventListener('mousedown', (e) => {
-        isDown = true;
-        slider.classList.add('dragging');
-        startX = e.pageX - slider.offsetLeft;
-        scrollLeft = slider.scrollLeft;
-        cancelAnimationFrame(momentumID); // stop any momentum
-    });
 
-    // Drag end
-    slider.addEventListener('mouseup', () => {
-        isDown = false;
-        slider.classList.remove('dragging');
-        momentumScroll(); // start momentum when released
-    });
+    document.addEventListener('DOMContentLoaded', () => {
+        if (document.querySelector('.slider')) {
+            class Slider {
+                radios = document.querySelectorAll('input[name="slider"]');
+                dots = document.querySelectorAll('.slider__dot');
+                current = 0;
+                max;
 
-    // Mouse leaves slider
-    slider.addEventListener('mouseleave', () => {
-        if (isDown) {
-            isDown = false;
-            slider.classList.remove('dragging');
-            momentumScroll();
+                autoplayInterval = null;
+                resumeTimeout = null;
+                constructor() {
+                    this.max = this.radios.length;
+                    this.startAutoplay();
+                    this.dotSelectedByUser();
+                }
+
+                autoplay() {
+                    this.radios.forEach(radio => radio.checked = false);
+                    this.radios[this.current].checked = true;
+                    this.current = (this.current + 1) % this.max;
+                }
+
+                startAutoplay = () => {
+                    if (this.autoplayInterval) return; // déjà lancé
+                    this.autoplayInterval = setInterval(this.autoplay.bind(this), 2000);
+                }
+
+                stopAutoplay() {
+                    clearInterval(this.autoplayInterval);
+                    this.autoplayInterval = null;
+                }
+                dotSelectedByUser() {
+                    this.dots.forEach((dot, index) => {
+                        dot.addEventListener("click", () => {
+                            this.stopAutoplay(); // on stoppe l'autoplay
+                            this.radios.forEach(r => r.checked = false);
+                            this.radios[index].checked = true;
+                            this.current = index;
+
+                            // On prépare la reprise automatique après 5s
+                            clearTimeout(this.resumeTimeout);
+                            this.resumeTimeout = setTimeout(() => {
+                                this.startAutoplay();
+                            }, 5000);
+                        });
+                    });
+                }
+            }
+            new Slider();
         }
     });
 
-    // Mouse move
-    slider.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - slider.offsetLeft;
-        const walk = (x - startX);
-        slider.scrollLeft = scrollLeft - walk;
-        velX = walk - velX; // save movement speed for momentum
-    });
+})();
 
-    // Smooth momentum scroll effect
-    function momentumScroll() {
-        velX *= 0.9; // friction
-        if (Math.abs(velX) > 0.5) {
-            slider.scrollLeft -= velX;
-            momentumID = requestAnimationFrame(momentumScroll);
-        }
-    }
-});
-
-
-if(document.querySelector('.slider')) {
-    const radios = document.querySelectorAll('input[name="slider"]');
-    const dots = document.querySelectorAll('.slider__dot');
-    let current = 0;
-    const max = radios.length;
-
-    let autoplayInterval = null;
-    let resumeTimeout = null;
-
-// Fonction pour changer de slide automatiquement
-    function autoplay() {
-        radios.forEach(radio => radio.checked = false);
-        radios[current].checked = true;
-        current = (current + 1) % max;
-    }
-
-// Démarrer l'autoplay
-    function startAutoplay() {
-        if (autoplayInterval) return; // déjà lancé
-        autoplayInterval = setInterval(autoplay, 2000);
-    }
-
-// Stopper l'autoplay
-    function stopAutoplay() {
-        clearInterval(autoplayInterval);
-        autoplayInterval = null;
-    }
-
-// Quand l'utilisateur clique sur un dot
-    dots.forEach((dot, index) => {
-        dot.addEventListener("click", () => {
-            stopAutoplay(); // on stoppe l'autoplay
-            radios.forEach(r => r.checked = false);
-            radios[index].checked = true;
-            current = index;
-
-            // On prépare la reprise automatique après 5s
-            clearTimeout(resumeTimeout);
-            resumeTimeout = setTimeout(() => {
-                startAutoplay();
-            }, 5000);
-        });
-    });
-
-// Lancer l'autoplay au chargement
-    startAutoplay();
-}
-
-const form = {
-    init() {
-        this.formElt = document.querySelector('.form');
-        this.addEventListeners();
-    },
-    addEventListeners() {
-        this.formElt.addEventListener('submit', (e) => {
-            e.preventDefault();
-        })
-    }
-}
-if(document.querySelector('.faq__question')){
-    (function (){
+(function () {
+    if (document.querySelector('.faq__question')) {
         const faq = {
 
             questions: document.querySelectorAll('.faq__question'),
             answers: document.querySelectorAll('.faq__answer'),
             arrows: document.querySelectorAll('.faq__arrow'),
 
-            init(){
+            init() {
                 this.addClosedClass();
                 this.addEventListeners();
             },
 
-            addClosedClass(){
+            addClosedClass() {
                 for (const answer of this.answers) {
                     answer.classList.add('faq__answer--closed');
                 }
@@ -137,7 +81,7 @@ if(document.querySelector('.faq__question')){
 
             },
 
-            addEventListeners(){
+            addEventListeners() {
                 for (let i = 0; i < this.questions.length; i++) {
                     this.questions[i].addEventListener('click', () => {
                         this.handleClassToggle(i);
@@ -151,6 +95,84 @@ if(document.querySelector('.faq__question')){
         }
 
         faq.init();
-    })();
-}
+    }
+})();
+
+
+(function (){
+    document.addEventListener('DOMContentLoaded',  () =>{
+
+        if(document.querySelector('.volunteering__right')){
+            class Volunteer {
+                slider = document.querySelector('.volunteering__right');
+                isDown = false;
+                startX;
+                scrollLeft;
+                velX = 0;
+                momentumID;
+                constructor() {
+                    this.addEventListeners();
+                };
+
+
+                addEventListeners() {
+                    this.mouseDownCustom();
+                    this.mouseUpCustom();
+                    this.mouseMoveCustom();
+                    this.mouseLeaveCustom();
+                };
+
+                mouseDownCustom() {
+                    this.slider.addEventListener('mousedown', (e) => {
+                        this.isDown = true;
+                        this.slider.classList.add('dragging');
+                        this.startX = e.pageX - this.slider.offsetLeft;
+                        this.scrollLeft = this.slider.scrollLeft;
+                        cancelAnimationFrame(this.momentumID);
+                    });
+                };
+
+                mouseUpCustom() {
+                    this.slider.addEventListener('mouseup', () => {
+                        this.isDown = false;
+                        this.slider.classList.remove('dragging');
+                        this.momentumScroll();
+                    });
+                };
+
+                mouseMoveCustom() {
+                    this.slider.addEventListener('mousemove', (e) => {
+                        if (!this.isDown) return;
+                        e.preventDefault();
+                        const x = e.pageX - this.slider.offsetLeft;
+                        const walk = (x - this.startX);
+                        this.slider.scrollLeft = this.scrollLeft - walk;
+                        this.velX = walk - this.velX;
+                    });
+                };
+
+                mouseLeaveCustom() {
+                    this.slider.addEventListener('mouseleave', () => {
+                        if (this.isDown) {
+                            this.isDown = false;
+                            this.slider.classList.remove('dragging');
+                            this.momentumScroll();
+                        }
+                    });
+                };
+
+                momentumScroll = () => {
+                    this.velX *= 0.9;
+                    if (Math.abs(this.velX) > 0.5) {
+                        this.slider.scrollLeft -= this.velX;
+                        this.momentumID = requestAnimationFrame(this.momentumScroll);
+                    }
+                };
+            }
+
+            new Volunteer();
+        }
+
+    });
+})();
 

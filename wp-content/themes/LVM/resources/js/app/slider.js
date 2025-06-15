@@ -1,48 +1,56 @@
+(function () {
 
-if(document.querySelector('.slider')) {
-    const radios = document.querySelectorAll('input[name="slider"]');
-    const dots = document.querySelectorAll('.slider__dot');
-    let current = 0;
-    const max = radios.length;
 
-    let autoplayInterval = null;
-    let resumeTimeout = null;
+    document.addEventListener('DOMContentLoaded', () => {
+        if (document.querySelector('.slider')) {
+            class Slider {
+                radios = document.querySelectorAll('input[name="slider"]');
+                dots = document.querySelectorAll('.slider__dot');
+                current = 0;
+                max;
 
-// Fonction pour changer de slide automatiquement
-    function autoplay() {
-        radios.forEach(radio => radio.checked = false);
-        radios[current].checked = true;
-        current = (current + 1) % max;
-    }
+                autoplayInterval = null;
+                resumeTimeout = null;
+                constructor() {
+                    this.max = this.radios.length;
+                    this.startAutoplay();
+                    this.dotSelectedByUser();
+                }
 
-// Démarrer l'autoplay
-    function startAutoplay() {
-        if (autoplayInterval) return; // déjà lancé
-        autoplayInterval = setInterval(autoplay, 2000);
-    }
+                autoplay() {
+                    this.radios.forEach(radio => radio.checked = false);
+                    this.radios[this.current].checked = true;
+                    this.current = (this.current + 1) % this.max;
+                }
 
-// Stopper l'autoplay
-    function stopAutoplay() {
-        clearInterval(autoplayInterval);
-        autoplayInterval = null;
-    }
+                startAutoplay = () => {
+                    if (this.autoplayInterval) return; // déjà lancé
+                    this.autoplayInterval = setInterval(this.autoplay.bind(this), 2000);
+                }
 
-// Quand l'utilisateur clique sur un dot
-    dots.forEach((dot, index) => {
-        dot.addEventListener("click", () => {
-            stopAutoplay(); // on stoppe l'autoplay
-            radios.forEach(r => r.checked = false);
-            radios[index].checked = true;
-            current = index;
+                stopAutoplay() {
+                    clearInterval(this.autoplayInterval);
+                    this.autoplayInterval = null;
+                }
+                dotSelectedByUser() {
+                    this.dots.forEach((dot, index) => {
+                        dot.addEventListener("click", () => {
+                            this.stopAutoplay(); // on stoppe l'autoplay
+                            this.radios.forEach(r => r.checked = false);
+                            this.radios[index].checked = true;
+                            this.current = index;
 
-            // On prépare la reprise automatique après 5s
-            clearTimeout(resumeTimeout);
-            resumeTimeout = setTimeout(() => {
-                startAutoplay();
-            }, 5000);
-        });
+                            // On prépare la reprise automatique après 5s
+                            clearTimeout(this.resumeTimeout);
+                            this.resumeTimeout = setTimeout(() => {
+                                this.startAutoplay();
+                            }, 5000);
+                        });
+                    });
+                }
+            }
+            new Slider();
+        }
     });
 
-// Lancer l'autoplay au chargement
-    startAutoplay();
-}
+})();
