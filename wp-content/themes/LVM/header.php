@@ -6,18 +6,18 @@
     <title><?= wp_title('·', false, 'right') . get_bloginfo('name') ?></title>
 
     <meta name="description"
-          content="Site web du service de résidence générale Le Vieux Moulin.">
+          content="Site internet du Vieux Moulin de Strainchamps réalisé par Hugo Girona dans le cadre d'un projet pour ses études">
     <meta name="author" content="Hugo Girona">
+    <meta name="keywords" content="Le Vieux Moulin, Strainchamps, SRG, Enfance, Aide, Service résidentiel général">
     <meta itemprop="name" content="Portfolio de Hugo Girona, artisan web">
-    <meta property="og:title" content="Accueil - Le Vieux Moulin">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Le Vieux Moulin">
+
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100..700&family=Kaushan+Script&family=Roboto:wght@100..900&display=swap"
           rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?= lvm_asset('css'); ?>">
+
 
     <script src="<?= lvm_asset('js') ?>" defer></script>
     <?php wp_head(); ?>
