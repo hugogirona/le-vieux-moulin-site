@@ -59,6 +59,7 @@
     if (document.querySelector('.faq__question')) {
         const faq = {
 
+            group: document.querySelectorAll('.faq__item'),
             questions: document.querySelectorAll('.faq__question'),
             answers: document.querySelectorAll('.faq__answer'),
             arrows: document.querySelectorAll('.faq__arrow'),
@@ -82,8 +83,8 @@
             },
 
             addEventListeners() {
-                for (let i = 0; i < this.questions.length; i++) {
-                    this.questions[i].addEventListener('click', () => {
+                for (let i = 0; i < this.group.length; i++) {
+                    this.group[i].addEventListener('click', () => {
                         this.handleClassToggle(i);
                     });
 

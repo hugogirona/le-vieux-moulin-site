@@ -23,6 +23,7 @@
     border-radius: .5rem;
     list-style: none;
     position: relative;
+    cursor: pointer;
   }
 
   &__arrow {
@@ -40,19 +41,20 @@
     & svg {
       width: 1.25em;
       height: 1.25em;
+      cursor: pointer;
     }
   }
 
   &__question {
     font-size: 1.25rem;
-    font-family: "Roboto", helvetica, arial, sans-serif;
+  cursor: pointer;
   }
 
   &__answer {
     overflow: hidden;
     padding: 2rem 0 1rem;
     height: initial;
-    transition: all .2s ease;
+    transition: all .3s linear;
 
 
     &--closed {
@@ -62,7 +64,7 @@
 
     &--open {
       padding: 2rem 0 1rem;
-      max-height: 500px;
+      max-height: 40rem;
     }
 
     & p {
